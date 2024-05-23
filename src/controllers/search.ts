@@ -1,6 +1,6 @@
 import Youtube from "../service/youtube";
 import {Request, Response} from "express";
-import {Query} from 'express-serve-static-core';
+import {Query}  from 'express-serve-static-core';
 
 export interface TypedRequest<T extends Query, U> extends Request {
     body: U,

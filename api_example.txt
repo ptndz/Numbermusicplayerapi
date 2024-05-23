@@ -1,5 +1,5 @@
-http://apiyt.phamthanhnam.com/search?name=pahmthanhnam
-http://apiyt.phamthanhnam.com/search/views?name=pahmthanhnam
-http://apiyt.phamthanhnam.com/search/complete?q=pahmthanhnam
-http://apiyt.phamthanhnam.com/infovideo?videoId=w10jsgLlPBs
-http://apiyt.phamthanhnam.com/infoaudio?videoId=w10jsgLlPBs
+http://localhost:3000/search?name=pahmthanhnam
+http://localhost:3000/search/views?name=pahmthanhnam
+http://localhost:3000/search/complete?q=pahmthanhnam
+http://localhost:3000/infovideo?videoId=w10jsgLlPBs
+http://localhost:3000/infoaudio?videoId=w10jsgLlPBs
