@@ -6,6 +6,10 @@ export let getHome = async (req: Request, res: Response) => {
 	const result = await NhacCuaTui.getHome();
 	return res.json(result);
 };
+export let getTop100 = async (req: Request, res: Response) => {
+	const result = await NhacCuaTui.getTop100("m3liaiy6vVsF");
+	return res.json(result);
+};
 export let getPlaylists = async (req: Request, res: Response) => {
 	const result = await NhacCuaTui.getPlaylists();
 	return res.json(result);

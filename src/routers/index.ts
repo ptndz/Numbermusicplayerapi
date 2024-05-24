@@ -10,6 +10,7 @@ import {
 	getLyric,
 	getPlaylistDetail,
 	getVideoDetail,
+	getTop100,
 } from "../controllers/nhaccuatui";
 const router = Router();
 
@@ -30,4 +31,5 @@ router.get("/nhaccuatui/getSong", getSong);
 router.get("/nhaccuatui/getLyric", getLyric);
 router.get("/nhaccuatui/getPlaylistDetail", getPlaylistDetail);
 router.get("/nhaccuatui/getVideoDetail", getVideoDetail);
+router.get("/nhaccuatui/getTop100", getTop100);
 export default router;
