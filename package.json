@@ -33,6 +33,7 @@
     "he": "^1.2.0",
     "nhaccuatui-api-full": "^1.1.0",
     "ytdl-core": "^4.11.5",
-    "ytsr": "^3.8.4"
+    "ytsr": "^3.8.4",
+    "zingmp3-api-full": "^1.0.14"
   }
 }

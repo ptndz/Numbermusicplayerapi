@@ -1,29 +1,24 @@
 import { Request, Response } from "express";
 import { TypedRequest } from "./search";
-import NhacCuaTui from "nhaccuatui-api-full";
+import { ZingMp3 } from "zingmp3-api-full";
 
 export let getHome = async (req: Request, res: Response) => {
-	const result = await NhacCuaTui.getHome();
+	const result = await ZingMp3.getHome();
 	return res.json(result);
 };
 
 export let getTop100 = async (req: Request, res: Response) => {
-	const result = await NhacCuaTui.getTop100("m3liaiy6vVsF");
+	const result = await ZingMp3.getTop100();
 	return res.json(result);
 };
-export let getPlaylists = async (req: Request, res: Response) => {
-	const result = await NhacCuaTui.getPlaylists();
+
+export let getChartHome = async (req: Request, res: Response) => {
+	const result = await ZingMp3.getChartHome();
 	return res.json(result);
 };
-export let getTrendingArtists = async (req: Request, res: Response) => {
-	const result = await NhacCuaTui.exploreArtists({
-		nation: "vn",
-		gender: 1,
-	});
-	return res.json(result);
-};
-export let getTopKeyword = async (req: Request, res: Response) => {
-	const result = await NhacCuaTui.getTopKeyword();
+
+export let getNewReleaseChart = async (req: Request, res: Response) => {
+	const result = await ZingMp3.getNewReleaseChart();
 	return res.json(result);
 };
 
@@ -33,72 +28,77 @@ export let getSong = async (
 ) => {
 	let songId: string = req.query.songId || req.body.songId;
 	if (songId) {
-		const result = await NhacCuaTui.getSong(songId);
+		const result = await ZingMp3.getSong(songId);
 		return res.json(result);
 	}
 	return res.json({
 		code: 400,
 	});
 };
-export let searchByKeyword = async (
-	req: TypedRequest<{ name: string }, { name: string }>,
+
+export let getInfoSong = async (
+	req: TypedRequest<{ songId: string }, { songId: string }>,
 	res: Response
 ) => {
-	let name: string = req.query.name || req.body.name;
-	if (name) {
-		const result = await NhacCuaTui.searchByKeyword(name);
+	let songId: string = req.query.songId || req.body.songId;
+	if (songId) {
+		const result = await ZingMp3.getInfoSong(songId);
 		return res.json(result);
 	}
 	return res.json({
 		code: 400,
 	});
 };
-export let getArtistDetail = async (
+
+export let getArtist = async (
 	req: TypedRequest<{ artistId: string }, { artistId: string }>,
 	res: Response
 ) => {
 	let artistId: string = req.query.artistId || req.body.artistId;
 	if (artistId) {
-		const result = await NhacCuaTui.getArtistDetail(artistId);
+		const result = await ZingMp3.getArtist(artistId);
 		return res.json(result);
 	}
 	return res.json({
 		code: 400,
 	});
 };
+
 export let getLyric = async (
 	req: TypedRequest<{ songId: string }, { songId: string }>,
 	res: Response
 ) => {
 	let songId: string = req.query.songId || req.body.songId;
 	if (songId) {
-		const result = await NhacCuaTui.getLyric(songId);
+		const result = await ZingMp3.getLyric(songId);
 		return res.json(result);
 	}
 	return res.json({
 		code: 400,
 	});
 };
+
 export let getPlaylistDetail = async (
 	req: TypedRequest<{ playlistId: string }, { playlistId: string }>,
 	res: Response
 ) => {
 	let playlistId: string = req.query.playlistId || req.body.playlistId;
 	if (playlistId) {
-		const result = await NhacCuaTui.getPlaylistDetail(playlistId);
+		const result = await ZingMp3.getDetailPlaylist(playlistId);
 		return res.json(result);
 	}
 	return res.json({
 		code: 400,
 	});
 };
-export let getVideoDetail = async (
-	req: TypedRequest<{ videoId: string }, { videoId: string }>,
+
+export let search = async (
+	req: TypedRequest<{ name: string }, { name: string }>,
 	res: Response
 ) => {
-	let videoId: string = req.query.videoId || req.body.videoId;
-	if (videoId) {
-		const result = await NhacCuaTui.getVideoDetail(videoId);
+	let name: string = req.query.name || req.body.name;
+	if (name) {
+		const result = await ZingMp3.search(name);
 		return res.json(result);
 	}
 	return res.json({
